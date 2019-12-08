@@ -16,7 +16,7 @@ jobs:
       if: success()
       uses: manusa/actions-publish-docker@master
       with:
-        name: organization/image_name
+        name: keywanghadamioxid/oxid-test
         username: ${{ secrets.DOCKER_HUB_USER }}
         password: ${{ secrets.DOCKER_HUB_PASSWORD }}
         
