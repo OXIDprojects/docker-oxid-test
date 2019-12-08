@@ -18,5 +18,6 @@ jobs:
       with:
         name: organization/image_name
         username: ${{ secrets.DOCKER_HUB_USER }}
-        password: ${{ secrets.DOCKER_HUB_PASSWORD }
+        password: ${{ secrets.DOCKER_HUB_PASSWORD }}
+        
       
