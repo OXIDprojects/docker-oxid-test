@@ -17,7 +17,7 @@ jobs:
     - name: service restart
       run: sudo service docker restart   
     - name: Build the OXID 6.1 Docker image
-      run: docker build . --squash --file Dockerfile --build-arg OXID=6.1 --tag my-image-name:$(date +%s)
+      run: docker build . --squash --file Dockerfile --build-arg OXID=6.1 --tag keywanghadamioxid/oxid-test:6.1
     - name: Publish OXID 6.1 Docker image on Docker Hub
       if: success()
       uses: manusa/actions-publish-docker@master
@@ -27,7 +27,7 @@ jobs:
         password: ${{ secrets.DOCKER_HUB_PASSWORD }}
         tag: 6.1
     - name: Build the OXID 6.2 Docker image
-      run: docker build . --squash --file Dockerfile --build-arg OXID=6.2 --tag my-image-name:$(date +%s)
+      run: docker build . --squash --file Dockerfile --build-arg OXID=6.2 --tag keywanghadamioxid/oxid-test:6.2
     - name: Publish OXID 6.2 Docker image on Docker Hub
       if: success()
       uses: manusa/actions-publish-docker@master
