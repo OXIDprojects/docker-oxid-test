@@ -21,7 +21,7 @@ jobs:
         password: ${{ secrets.DOCKER_HUB_PASSWORD }}
         tag: 6.1
     - name: enable experimental features
-      run: "mkdir -p /etc/docker && echo '{\"experimental\": true}' > /etc/docker/daemon.json"
+      run: "sudo mkdir -p /etc/docker && echo '{\"experimental\": true}' | sudo tee /etc/docker/daemon.json"
     - name: Build the OXID 6.2 Docker image
       run: docker build . --squash --file Dockerfile --build-arg OXID=6.2 --tag my-image-name:$(date +%s)
     - name: Publish OXID 6.1 Docker image on Docker Hub
