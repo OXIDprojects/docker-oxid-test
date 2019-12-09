@@ -9,6 +9,7 @@ docker run --rm -d -p 3306:3306 --name=gim -e  MYSQL_ROOT_PASSWORD=root mysql:5.
 docker run -d --link gim:db --rm --name=oxid --mount type=bind,source=$(pwd),target=/var/www/module keywanghadamioxid/oxid-test:6.2
 docker exec -ti oxid bash
 cd /var/www/module
+bash ../OXID/setup.sh
 find . -not -path "./vendor/*" -name "*.php" -print0 | xargs -0 -n1 -P8 php -l
 cd /var/www/OXID
 vendor/bin/phpstan analyse --configuration phpstan.neon /var/www/module
