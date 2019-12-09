@@ -23,7 +23,7 @@ jobs:
     - name: enable experimental features
       run: "sudo mkdir -p /etc/docker && echo '{\"experimental\": true}' | sudo tee /etc/docker/daemon.json"
     - name: enable experimental features on client
-      run: "mkdir -p ~/.docker && echo '{\"experimental\": enabled}' | tee ~/.docker/config.json"
+      run: "mkdir -p ~/.docker && echo '{\"experimental\": \"enabled\"}' | tee ~/.docker/config.json"
     - name: info
       run: docker info && docker version
     - name: service restart
