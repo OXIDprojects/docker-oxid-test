@@ -8,4 +8,6 @@ RUN cd /var/www &&\
     echo "installing OXID version ${OXID} in path $OXID_PATH" &&\
     composer create-project --no-interaction --no-progress oxid-esales/oxideshop-project . dev-b-"${OXID}"-ce
 
+RUN composer require "psalm/phar:^3.7" "phpstan/phpstan:0.12" "phpmd/phpmd:@beta" --dev
+
 ADD setup.sh /var/www/OXID/setup.sh
