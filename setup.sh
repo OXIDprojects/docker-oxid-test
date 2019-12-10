@@ -1,7 +1,7 @@
 #! bin/bash
 set -e
 set -x
-DB_HOST=${DB_HOST:-db}
+DB_HOST=${DB_HOST:-mysql}
 DB_NAME=${DB_NAME:-oxid}
 DB_USER=${DB_USER:-root}
 DB_PWD=${DB_PWD:-root}
