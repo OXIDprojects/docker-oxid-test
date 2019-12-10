@@ -10,7 +10,7 @@ RUN cd /var/www &&\
 RUN echo $(pwd)
 RUN cd /var/www/OXID &&\ 
     composer require "psalm/phar:^3.7" "phpstan/phpstan:0.12" "phpmd/phpmd:@beta" "squizlabs/php_codesniffer:>=2.3.1 <4.0" --dev
-RUN cat composer.json
+RUN cat /var/www/OXID/composer.json
 RUN rm -r /root/.composer/cache/files/*
 RUN rm -r /var/www/OXID/vendor/oxid-esales/oxideshop-ce/source/out/pictures/*
 RUN rm -r /var/www/OXID/vendor/oxid-esales/oxideshop-demodata-ce/*
