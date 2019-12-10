@@ -1,6 +1,6 @@
 FROM oxidesales/oxideshop-docker-php:7.1
 ARG OXID=6.1
-
+ENV COMPOSER_ALLOW_SUPERUSER=1
 RUN cd /var/www &&\
     mkdir -p OXID &&\
     cd OXID &&\
@@ -8,7 +8,10 @@ RUN cd /var/www &&\
     echo "installing OXID version ${OXID} in path $OXID_PATH" &&\
     composer create-project --no-interaction --no-progress oxid-esales/oxideshop-project . dev-b-"${OXID}"-ce
 
-RUN composer require "psalm/phar:^3.7" "phpstan/phpstan:0.12" "phpmd/phpmd:@beta" "squizlabs/php_codesniffer:>=2.3.1 <4.0" --dev
+RUN composer require "psalm/phar:^3.7" --dev
+RUN composer require "phpstan/phpstan:0.12" --dev
+RUN composer require "phpmd/phpmd:@beta" --dev
+RUN composer require "squizlabs/php_codesniffer:>=2.3.1 <4.0" --dev
 RUN rm -r /root/.composer/cache/files/*
 RUN rm -r /var/www/OXID/vendor/oxid-esales/oxideshop-ce/source/out/pictures/*
 RUN rm -r /var/www/OXID/vendor/oxid-esales/oxideshop-demodata-ce/*
