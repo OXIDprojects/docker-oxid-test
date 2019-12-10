@@ -6,4 +6,5 @@ parameters:
     - /var/www/OXID/autoload.oxid.php
     stubFiles:
     - /var/www/OXID/stubs/oxnew.php
+    - /var/www/OXID/stubs/Registry.php
     - /var/www/OXID/stubs/Base.php
