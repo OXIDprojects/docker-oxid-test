@@ -1,13 +1,6 @@
 <?php
-/**
- * Copyright    OXID eSales AG. All rights reserved.
- * See LICENSE file for license details.
- */
 namespace OxidEsales\EshopCommunity\Core;
 use OxidEsales\EshopCommunity\Core\Autoload\BackwardsCompatibilityClassMapProvider;
-/**
- * Object registry design pattern implementation. Stores the instances of objects
- */
 class Registry {
    /**
      * @template T
