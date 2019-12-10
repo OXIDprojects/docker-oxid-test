@@ -18,21 +18,12 @@ jobs:
       run: sudo service docker restart   
     - name: Build the OXID 6.1 Docker image
       run: docker build . --squash --file Dockerfile --build-arg OXID=6.1 --tag keywanghadamioxid/oxid-test:6.1
-    - name: Publish OXID 6.1 Docker image on Docker Hub
-      if: success()
-      uses: manusa/actions-publish-docker@master
-      with:
-        name: keywanghadamioxid/oxid-test
-        username: ${{ secrets.DOCKER_HUB_USER }}
-        password: ${{ secrets.DOCKER_HUB_PASSWORD }}
-        tag: 6.1
     - name: Build the OXID 6.2 Docker image
       run: docker build . --squash --file Dockerfile --build-arg OXID=6.2 --tag keywanghadamioxid/oxid-test:6.2
+    - name: Docker Login
+      run: docker login -u $DOCKER_HUB_USER -p $DOCKER_HUB_PASSWORD
+    - name: Publish OXID 6.1 Docker image on Docker Hub
+      run: docker push keywanghadamioxid/oxid-test:6.1  
     - name: Publish OXID 6.2 Docker image on Docker Hub
-      if: success()
-      uses: manusa/actions-publish-docker@master
-      with:
-        name: keywanghadamioxid/oxid-test
-        username: ${{ secrets.DOCKER_HUB_USER }}
-        password: ${{ secrets.DOCKER_HUB_PASSWORD }}
-        tag: 6.2
+      run: docker push keywanghadamioxid/oxid-test:6.2
+      
