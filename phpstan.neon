@@ -1,0 +1,7 @@
+parameters:
+    level: 7
+    autoload_files:
+    - /var/www/OXID/vendor/oxid-esales/testing-library/base.php
+    - /var/www/OXID/autoload.oxid.php
+    stubs:
+    - /var/www/OXID/stubs/oxnew.php
