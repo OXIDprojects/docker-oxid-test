@@ -1,5 +1,6 @@
 #! bin/bash
-
+set -e
+set -x
 DB_HOST=${DB_HOST:-db}
 DB_NAME=${DB_NAME:-oxid}
 DB_USER=${DB_USER:-root}
