@@ -16,4 +16,4 @@ RUN rm -r /var/www/OXID/vendor/oxid-esales/oxideshop-ce/source/out/pictures/*
 RUN rm -r /var/www/OXID/vendor/oxid-esales/oxideshop-demodata-ce/*
 RUN rm -r /var/www/OXID/source/out/pictures/*
 ADD setup.sh /var/www/OXID/setup.sh
-ADD oxnew.stub /var/www/OXID/setup.sh
+ADD stubs/oxnew.php /var/www/OXID/stubs/oxnew.php
