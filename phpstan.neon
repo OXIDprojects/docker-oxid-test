@@ -3,5 +3,5 @@ parameters:
     autoload_files:
     - /var/www/OXID/vendor/oxid-esales/testing-library/base.php
     - /var/www/OXID/autoload.oxid.php
-    stubs:
+    stubFiles:
     - /var/www/OXID/stubs/oxnew.php
