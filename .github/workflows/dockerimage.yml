@@ -21,7 +21,7 @@ jobs:
     - name: Build the OXID 6.2 Docker image
       run: docker build . --squash --file Dockerfile --build-arg OXID=6.2 --tag keywanghadamioxid/oxid-test:6.2
     - name: Docker Login
-      run: docker login -u $DOCKER_HUB_USER -p $DOCKER_HUB_PASSWORD
+      run: docker login -u ${{ secrets.DOCKER_HUB_USER }} -p ${{ secrets.DOCKER_HUB_PASSWORD }}
     - name: Publish OXID 6.1 Docker image on Docker Hub
       run: docker push keywanghadamioxid/oxid-test:6.1  
     - name: Publish OXID 6.2 Docker image on Docker Hub
