@@ -9,8 +9,8 @@ RUN cd /var/www &&\
     composer create-project --no-interaction --no-progress oxid-esales/oxideshop-project . dev-b-"${OXID}"-ce
 RUN echo $(pwd)
 RUN cd /var/www/OXID &&\ 
-    composer require "cweagans/composer-patches:^1.6.7" "alfredbez/oxid-dump-autoload:^0.1.0" "psalm/phar:^3.7" "phpstan/phpstan:0.12" "phpmd/phpmd:@beta" "squizlabs/php_codesniffer:>=2.3.1 <4.0" --dev
-RUN composer config extra.enable-patching true
+    composer require "cweagans/composer-patches:^1.6.7" "alfredbez/oxid-dump-autoload:^0.1.0" "psalm/phar:^3.7" "phpstan/phpstan:0.12" "phpmd/phpmd:@beta" "squizlabs/php_codesniffer:>=2.3.1 <4.0" --dev &&\
+    composer config extra.enable-patching true
 RUN cat /var/www/OXID/composer.json
 RUN rm -r /root/.composer/cache/files/*
 RUN rm -r /var/www/OXID/vendor/oxid-esales/oxideshop-ce/source/out/pictures/*
