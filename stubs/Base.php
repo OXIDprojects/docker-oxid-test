@@ -1,0 +1,14 @@
+<?php
+namespace OxidEsales\EshopCommunity\Core;
+
+class Base
+{
+     /**
+     *
+     * @return \OxidEsales\Eshop\Application\Model\User|false
+     */
+    public function getUser()
+    {
+    }
+}
+
