@@ -46,5 +46,5 @@ echo "installing ${PACKAGE_NAME} in ${TARGET_PATH}"
 composer require "${PACKAGE_NAME}:$VERSION"
 
 echo loading DB
-mysql -u $DB_USER -p$DB_PWD -h $DB_HOST $DB_NAME < /vendor/oxid-esales/oxideshop-ce/source/Setup/Sql/database_schema.sql
-mysql -u $DB_USER -p$DB_PWD -h $DB_HOST $DB_NAME < /vendor/oxid-esales/oxideshop-ce/source/Setup/Sql/initial_data.sql
+mysql -u $DB_USER -p$DB_PWD -h $DB_HOST $DB_NAME < vendor/oxid-esales/oxideshop-ce/source/Setup/Sql/database_schema.sql
+mysql -u $DB_USER -p$DB_PWD -h $DB_HOST $DB_NAME < vendor/oxid-esales/oxideshop-ce/source/Setup/Sql/initial_data.sql
