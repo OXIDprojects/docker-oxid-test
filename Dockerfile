@@ -12,4 +12,5 @@ RUN composer require "psalm/phar:^3.7" "phpstan/phpstan:0.12" "phpmd/phpmd:@beta
 RUN rm -r /root/.composer/cache/files/*
 RUN rm -r /var/www/OXID/vendor/oxid-esales/oxideshop-ce/source/out/pictures/*
 RUN rm -r /var/www/OXID/vendor/oxid-esales/oxideshop-demodata-ce/*
+RUN rm -r /var/www/OXID/source/out/pictures/*
 ADD setup.sh /var/www/OXID/setup.sh
