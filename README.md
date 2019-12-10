@@ -6,7 +6,7 @@ A docker conteainer for testing modules
 navigate to the module root directory and execute
 ```
 docker run --rm -d -p 3306:3306 --name=gim -e  MYSQL_ROOT_PASSWORD=root mysql:5.7
-docker run -d --link gim:db --rm --name=oxid --mount type=bind,source=$(pwd),target=/var/www/module keywanghadamioxid/oxid-test:6.2
+docker run -d --link gim:mysql --rm --name=oxid --mount type=bind,source=$(pwd),target=/var/www/module keywanghadamioxid/oxid-test:6.2
 docker exec -ti oxid bash
 cd /var/www/module
 bash ../OXID/setup.sh
