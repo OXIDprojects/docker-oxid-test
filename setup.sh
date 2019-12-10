@@ -51,3 +51,7 @@ mysql -u $DB_USER -p$DB_PWD -h $DB_HOST $DB_NAME < vendor/oxid-esales/oxideshop-
 mysql -u $DB_USER -p$DB_PWD -h $DB_HOST $DB_NAME < vendor/oxid-esales/oxideshop-ce/source/Setup/Sql/initial_data.sql
 vendor/bin/oe-eshop-db_migrate migrations:migrate
 vendor/bin/oe-eshop-db_views_generate
+
+cd $BUILD_DIR
+composer config version --unset
+
