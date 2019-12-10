@@ -40,7 +40,7 @@ file_put_contents('composer.json', json_encode(\$c, JSON_PRETTY_PRINT));
 //print json_encode(\$c, JSON_PRETTY_PRINT);
 "
 
-composer config minimum-stability dev
+#composer config minimum-stability dev
 #Module Registrieren
 #composer config repo.packagist false
 echo "installing ${PACKAGE_NAME} in ${TARGET_PATH}"
