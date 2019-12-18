@@ -35,10 +35,6 @@ test:static:
     - bash /var/www/OXID/setup.sh
     - MD=$(pwd)
     - cd /var/www/OXID
-    - composer install -vvv
-    - composer require oxid-professional-services/oxid-console:dev-fixRcCommand
-    - vendor/bin/oxid module:activate oxps/debuguser
-    - vendor/bin/oxid-dump-autoload
     #- cat autoload.oxid.php
     - vendor/bin/phpstan analyse --configuration phpstan.neon $MD
     - vendor/bin/runtests

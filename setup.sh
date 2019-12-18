@@ -8,6 +8,7 @@ DB_PWD=${DB_PWD:-root}
 SHOP_URL=${SHOP_URL:-http://127.0.0.1}
 SHOP_LOG_LEVEL=${SHOP_LOG_LEVEL:-info}
 
+MODULE_NAME=$(composer config name)
 
 BUILD_DIR=$(pwd)
 VERSION="0.0.0-alpha$(( ( RANDOM % 100000 )  + 1 ))"
@@ -51,6 +52,9 @@ mysql -u $DB_USER -p$DB_PWD -h $DB_HOST $DB_NAME < vendor/oxid-esales/oxideshop-
 mysql -u $DB_USER -p$DB_PWD -h $DB_HOST $DB_NAME < vendor/oxid-esales/oxideshop-ce/source/Setup/Sql/initial_data.sql
 vendor/bin/oe-eshop-db_migrate migrations:migrate
 vendor/bin/oe-eshop-db_views_generate
+
+vendor/bin/oxid module:activate $MODULE_NAME
+vendor/bin/oxid-dump-autoload
 
 cd $BUILD_DIR
 composer config version --unset
