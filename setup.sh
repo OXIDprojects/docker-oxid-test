@@ -8,12 +8,11 @@ DB_PWD=${DB_PWD:-root}
 SHOP_URL=${SHOP_URL:-http://127.0.0.1}
 SHOP_LOG_LEVEL=${SHOP_LOG_LEVEL:-info}
 
-MODULE_NAME=$(composer config name)
+PACKAGE_NAME=$(composer config name)
 
 BUILD_DIR=$(pwd)
 VERSION="0.0.0-alpha$(( ( RANDOM % 100000 )  + 1 ))"
 TARGET_PATH=$(grep '"target-directory":' composer.json | awk -F'"' '{print $4}')
-PACKAGE_NAME=$(grep '"name":' composer.json | awk -F'"' '{print $4}')
 
 composer config version $VERSION
 
