@@ -33,9 +33,7 @@ test:static:
 .test_template: &test_definition
   script:
     - bash /var/www/OXID/setup.sh
-    - MD=$(pwd)
     - cd /var/www/OXID
-    #- cat autoload.oxid.php
     - vendor/bin/phpstan analyse --configuration phpstan.neon $MD
     - vendor/bin/runtests
   services:
@@ -52,6 +50,7 @@ test:OXID6.2:
   allow_failure: true
 
 variables:
+  MODULE_NAME: 'mymoduleid'
   DB_HOST: 'mariadb'
   MYSQL_DATABASE: 'oxid'
   MYSQL_ROOT_PASSWORD: 'root'
