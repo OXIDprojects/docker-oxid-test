@@ -22,7 +22,7 @@ vendor/bin/runtests
 # How to use in ci
 
 ## gitlab
-
+```
 image: keywanghadamioxid/oxid-test:6.2
 
 test:static:
@@ -60,3 +60,4 @@ variables:
   MYSQL_DATABASE: 'oxid'
   MYSQL_ROOT_PASSWORD: 'root'
 
+```
