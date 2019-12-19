@@ -1,4 +1,5 @@
-FROM oxidesales/oxideshop-docker-php:7.1
+ARG PHP=7.1
+FROM oxidesales/oxideshop-docker-php:${PHP}
 ARG OXID=6.1
 ENV COMPOSER_ALLOW_SUPERUSER=1
 RUN cd /var/www &&\
@@ -8,7 +9,7 @@ RUN cd /var/www &&\
     echo "installing OXID version ${OXID} in path $OXID_PATH" &&\
     composer create-project --no-interaction --no-progress oxid-esales/oxideshop-project . dev-b-"${OXID}"-ce
 WORKDIR "/var/www/OXID"
-RUN composer require "oxid-professional-services/oxid-console:dev-fixRcCommand" "cweagans/composer-patches:^1.6.7" "alfredbez/oxid-dump-autoload:^0.1.0" "psalm/phar:^3.7" "phpstan/phpstan:0.12" "phpmd/phpmd:@beta" "squizlabs/php_codesniffer:>=2.3.1 <4.0" --dev
+RUN composer require "oxid-professional-services/oxid-console:dev-fixRcCommand" "cweagans/composer-patches:^1.6.7" "alfredbez/oxid-dump-autoload:^0.1.0" "psalm/phar:^3.7" "phpstan/phpstan:0.12" "phpmd/phpmd:@beta" --dev
 RUN composer config extra.enable-patching true
 RUN cat composer.json
 RUN rm -r /root/.composer/cache/files/*
