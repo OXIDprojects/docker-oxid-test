@@ -23,7 +23,7 @@ jobs:
     - name: Docker Login
       run: docker login -u ${{ secrets.DOCKER_HUB_USER }} -p ${{ secrets.DOCKER_HUB_PASSWORD }}
     - name: Publish OXID 6.1 Docker image on Docker Hub
-      run: docker push keywanghadamioxid/oxid-test:6.1  
+      run: docker push oxidprojects/oxid-test:6.1
  #   - name: Publish OXID 6.2 Docker image on Docker Hub
  #     run: docker push keywanghadamioxid/oxid-test:6.2
       
