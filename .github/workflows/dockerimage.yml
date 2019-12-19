@@ -5,12 +5,13 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
-    matrix:
-      oxid: [6.1,6.2]
-      php: [7.1,7.2]
-      exclude:
-        - oxid: 6.2
-          php: 7.1
+    strategy:
+      matrix:
+        oxid: [6.1,6.2]
+        php: [7.1,7.2]
+        exclude:
+          - oxid: 6.2
+            php: 7.1
     steps:
     - uses: actions/checkout@v1
     - name: enable experimental features
