@@ -23,6 +23,7 @@ vendor/bin/runtests
 
 ## gitlab
 
+```
 image: keywanghadamioxid/oxid-test:6.2
 
 test:static:
@@ -54,4 +55,4 @@ variables:
   DB_HOST: 'mariadb'
   MYSQL_DATABASE: 'oxid'
   MYSQL_ROOT_PASSWORD: 'root'
-
+```
