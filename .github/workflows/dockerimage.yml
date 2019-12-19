@@ -12,6 +12,8 @@ jobs:
         exclude:
           - oxid: 6.2
             php: 7.1
+          - oxid: 6.2
+            php: 7.2
     steps:
     - uses: actions/checkout@v1
     - name: enable experimental features
@@ -21,7 +23,7 @@ jobs:
     - name: service restart
       run: sudo service docker restart   
     - name: Build the OXID 6.1 Docker image
-      run: docker build . --squash --file Dockerfile --build-arg OXID=${{ matrix.oxid }} --tag oxidprojects/oxid-test:${{ matrix.oxid }}_php${{ matrix.php }}
+      run: docker build . --squash --file Dockerfile --build-arg PHP=${{ matrix.php }} --build-arg OXID=${{ matrix.oxid }} --tag oxidprojects/oxid-test:${{ matrix.oxid }}_php${{ matrix.php }}
     - name: Docker Login
       run: docker login -u ${{ secrets.DOCKER_HUB_USER }} -p ${{ secrets.DOCKER_HUB_PASSWORD }}
     - name: Publish OXID ${{ matrix.oxid }}_php${{ matrix.php }} Docker image on Docker Hub
