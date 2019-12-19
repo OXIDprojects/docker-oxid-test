@@ -18,3 +18,4 @@ RUN rm -r source/out/pictures/*
 COPY setup.sh /var/www/OXID/setup.sh
 COPY stubs /var/www/OXID/stubs
 COPY phpstan.neon /var/www/OXID/phpstan.neon
+RUN curl -OL https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar
