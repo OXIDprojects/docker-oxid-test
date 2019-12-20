@@ -1,4 +1,6 @@
 # docker-oxid-test
+[![Next Release Test Status](https://github.com/OXIDprojects/docker-oxid-test/workflows/oxid%20module%20tests/badge.svg?branch=master)](https://github.com/OXIDprojects/docker-oxid-test/actions?query=branch%3Amaster)
+
 A docker conteainer for testing modules
 
 
@@ -6,7 +8,7 @@ A docker conteainer for testing modules
 navigate to the module root directory and execute
 ```
 docker run --rm -d -p 3306:3306 --name=gim -e  MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=oxid  mysql:5.7
-docker run -d --link gim:mysql --rm --name=oxid --mount type=bind,source=$(pwd),target=/var/www/module keywanghadamioxid/oxid-test:6.2
+docker run -d --link gim:mysql --rm --name=oxid --mount type=bind,source=$(pwd),target=/var/www/module oxidprojects/oxid-test:6.2-rc_php7.1
 docker exec -ti oxid bash
 cd /var/www/module
 bash ../OXID/setup.sh
@@ -24,7 +26,7 @@ vendor/bin/runtests
 ## gitlab
 
 ```
-image: keywanghadamioxid/oxid-test:6.2
+image: oxidprojects/oxid-test:6.2-rc_php7.1
 
 test:static:
   script:
@@ -44,7 +46,7 @@ test:static:
 
 test:OXID6.1:
   <<: *test_definition
-  image: keywanghadamioxid/oxid-test:6.1
+  image: oxidprojects/oxid-test:6.1_php7.1
 
 test:OXID6.2:
   <<: *test_definition
@@ -77,7 +79,7 @@ jobs:
         options: --health-cmd "mysqladmin ping" --health-interval 10s --health-timeout 5s --health-retries 10
 
     runs-on: ubuntu-latest
-    container: keywanghadamioxid/oxid-test:6.1
+    container: oxidprojects/oxid-test:6.1_php7.1
     env:
       MODULE_NAME: moduleinternals
     steps:
