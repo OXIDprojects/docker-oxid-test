@@ -1,5 +1,5 @@
 # docker-oxid-test
-[![Next Release Test Status](https://github.com/OXIDprojects/docker-oxid-test/workflows/oxid%20module%20tests/badge.svg?branch=master)](https://github.com/OXIDprojects/docker-oxid-test/actions?query=branch%3Amaster)
+[![Next Release Test Status](https://github.com/OXIDprojects/docker-oxid-test/workflows/Docker Image CI/badge.svg?branch=master)](https://github.com/OXIDprojects/docker-oxid-test/actions?query=branch%3Amaster)
 
 A docker conteainer for testing modules
 
