@@ -5,7 +5,7 @@
   },
   "require-dev": {
     "oxid-professional-services/oxid-console": "6.0.0-beta2",
-    "oxid-esales/testing-library": "^v<?php print $oxidVersion === 'dev-master' ? 7 : ($oxidVersion == '6.2' ? 7 : 6); ?>",
+    "oxid-esales/testing-library": "<?php print $oxidVersion === 'dev-master' ? '^v7' : ($oxidVersion == '6.2' ? '^v7' : '^v5.0.7'); ?>",
     "cweagans/composer-patches": "^1.6.7",
     "alfredbez/oxid-dump-autoload":"^0.1.0",
     "psalm/phar":"^3.7",
