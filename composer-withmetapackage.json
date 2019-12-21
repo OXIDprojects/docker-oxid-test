@@ -1,7 +1,7 @@
 {
   "name": "oxid-community/docker-oxid-test",
   "require": {
-    "oxid-esales/oxideshop-metapackage-ce" : "<?php $c = $oxidVersion = getenv('OXID'); if($oxidVersion !== 'dev-master'){$c = '^'.$oxidVersion;} print $c; ?>"
+    "oxid-esales/oxideshop-metapackage-ce" : "<?php $c = $oxidVersion = getenv('OXID'); if($oxidVersion !== 'dev-master'){$c = '^'.$oxidVersion;} print $c.'@dev'; ?>"
   },
   "require-dev": {
     "oxid-professional-services/oxid-console": "6.0.0-beta2",
