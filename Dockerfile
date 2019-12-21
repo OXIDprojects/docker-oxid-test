@@ -53,7 +53,7 @@ RUN cat composer.json
 RUN OXID_PATH=$(pwd) &&\
     echo "installing OXID version ${OXID} in path $OXID_PATH" &&\
     composer create-project --no-interaction --no-progress
-
+RUN cp vendor/oxid-esales/testing-library/test_config.yml.dist test_config.yml
 RUN rm -r /root/.composer/cache/files/*
 RUN rm -r vendor/oxid-esales/oxideshop-ce/source/out/pictures/*
 RUN rm -r vendor/oxid-esales/oxideshop-demodata-ce/*
