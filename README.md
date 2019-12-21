@@ -8,7 +8,8 @@ A docker conteainer for testing modules
 navigate to the module root directory and execute
 ```
 docker run --rm -d -p 3306:3306 --name=gim -e  MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=oxid  mysql:5.7
-docker run -d --link gim:mysql --rm --name=oxid --mount type=bind,source=$(pwd),target=/var/www/module oxidprojects/oxid-test:6.2-rc_php7.1
+docker run -p 80:80 -d --link gim:mysql --rm --name=oxid --mount type=bind,source=$(pwd),target=/var/www/module oxidprojects/oxid-test:6.2-rc_php7.2
+
 docker exec -ti oxid bash
 cd /var/www/module
 bash ../OXID/setup.sh
@@ -19,6 +20,9 @@ vendor/bin/phpstan analyse --configuration phpstan.neon /var/www/module
 vendor/bin/phpcs --standard=PSR12 --extensions=php /var/www/module
 vendor/bin/psalm.phar --show-info=false /var/www/module
 vendor/bin/runtests 
+
+you can also use you your browser an open http://127.0.0.1 to see the oxid shop installed
+
 ```
 
 # How to use in ci
