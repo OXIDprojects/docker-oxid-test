@@ -3,7 +3,7 @@
   "require": {
     "oxid-esales/oxideshop-metapackage-ce" : "<?php $c = $oxidVersion = getenv('OXID'); if($oxidVersion !== 'dev-master'){$c = '^'.$oxidVersion;} print $c.'@dev'; ?>"
     <?php if ($oxidVersion == 'dev-master'){?>
-    "oxid-esales/oxideshop-ce" : "@dev"
+    ,"oxid-esales/oxideshop-ce" : "@dev"
     <?php }?>
   },
   "require-dev": {
