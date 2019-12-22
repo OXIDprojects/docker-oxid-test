@@ -1,5 +1,11 @@
 {
   "name": "oxid-community/docker-oxid-test",
+  "type": "project",
+  "autoload-dev": {
+    "psr-4": {
+      "OxidEsales\\EshopCommunity\\Tests\\": "./vendor/oxid-esales/oxideshop-ce/tests"
+    }
+  },
   "require": {
     <?php 
     $oxidVersion = getenv('OXID');
