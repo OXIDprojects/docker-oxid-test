@@ -9,7 +9,7 @@
     "oxid-esales/oxideshop-doctrine-migration-wrapper": ">=2.1.3",
     "oxid-esales/oxideshop-db-views-generator": ">=1.2",
     "oxid-esales/oxideshop-composer-plugin": ">=4",
-    "oxid-esales/flow-theme": ">=3.4",
+    "oxid-esales/flow-theme": ">=3.4"
     <?php }?>
   },
   "require-dev": {
