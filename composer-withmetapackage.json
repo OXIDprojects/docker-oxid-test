@@ -3,7 +3,7 @@
   "require": {
     <?php 
     $oxidVersion = getenv('OXID');
-    if ($oxidVersion == 'dev-master') {?>,
+    if ($oxidVersion == 'dev-master') {?>
     "oxid-esales/oxideshop-ce" : "@dev",
     "oxid-esales/oxideshop-demodata-ce" : "@dev",
     "oxid-esales/oxideshop-unified-namespace-generator": ">=2.0.1",
