@@ -2,10 +2,11 @@
   "name": "oxid-community/docker-oxid-test",
   "require": {
     "oxid-esales/oxideshop-metapackage-ce" : "<?php $c = $oxidVersion = getenv('OXID'); if($oxidVersion !== 'dev-master'){$c = '^'.$oxidVersion;} print $c.'@dev'; ?>"
+    <?php if ($oxidVersion == 'dev-master') {?>,
+    "oxid-esales/oxideshop-ce" : "@dev",
+    "oxid-esales/oxideshop-demodata-ce" : "@dev"
+    <?php }?>
   },
-  <?php if ($oxidVersion == 'dev-master') {?>
-  "minimum-stability" : "dev",
-  <?php }?>
   "require-dev": {
     "oxid-professional-services/oxid-console": "^6.0.0-beta3",
     "oxid-esales/testing-library": "<?php print $oxidVersion === 'dev-master' ? '^v7' : (substr($oxidVersion,0,3) == '6.2' ? '^v7' : '^v5.0.4'); ?>",
