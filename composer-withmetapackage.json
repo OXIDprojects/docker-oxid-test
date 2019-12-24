@@ -8,8 +8,15 @@
   },
   "repositories": [
         {
-            "type": "vcs",
-            "url": "https://github.com/keywan-ghadami-oxid/testing_library"
+            "type": "package",
+            "package": {
+                "version": "7.2",
+                "name": "oxid-esales/testing-library",
+                "dist": {
+                    "url": "https://github.com/keywan-ghadami-oxid/testing_library/archive/7.2.zip",
+                    "type": "zip"
+                }
+            }     
         }
     ],
   "require": {
