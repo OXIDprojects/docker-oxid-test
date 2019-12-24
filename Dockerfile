@@ -13,6 +13,8 @@ RUN composer show -v -a oxid-esales/testing-library
 RUN OXID_PATH=$(pwd) &&\
     echo "installing OXID version ${OXID} in path $OXID_PATH" &&\
     composer create-project --prefer-dist --no-interaction --no-progress
+RUN composer show -v oxid-esales/testing-library
+RUN ls -al vendor/bin
 #remove hirak/prestissimo because it conflicts with composer patches
 RUN composer global remove hirak/prestissimo
 RUN cp vendor/oxid-esales/testing-library/test_config.yml.dist test_config.yml
