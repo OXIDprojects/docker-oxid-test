@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        oxid: [6.1,6.2-rc,dev-master]
+        oxid: [dev-master]
         php: [7.1,7.2]
         exclude:
           - oxid: dev-master
