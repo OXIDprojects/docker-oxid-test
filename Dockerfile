@@ -8,7 +8,7 @@ ARG OXID=6.1
 RUN php composer-withmetapackage.json > composer.json
 RUN cat composer.json
 
-RUN composer show -v oxid-esales/testing-library
+RUN composer show -v -a oxid-esales/testing-library
 
 RUN OXID_PATH=$(pwd) &&\
     echo "installing OXID version ${OXID} in path $OXID_PATH" &&\
