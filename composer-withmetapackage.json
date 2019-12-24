@@ -29,7 +29,7 @@
   },
   "require-dev": {
     "oxid-professional-services/oxid-console": "^6.0.0-beta3",
-    "oxid-esales/testing-library": "<?php print $oxidVersion === 'dev-master' ? 'dev-master' : (substr($oxidVersion,0,3) == '6.2' ? '^v7' : '^v5.0.4'); ?>",
+    "oxid-esales/testing-library": "<?php print $oxidVersion === 'dev-master' ? '7.2' : (substr($oxidVersion,0,3) == '6.2' ? '^v7' : '^v5.0.4'); ?>",
     "cweagans/composer-patches": "^1.6.7",
     "alfredbez/oxid-dump-autoload":"^0.1.0",
     "psalm/phar":"^3.7",
