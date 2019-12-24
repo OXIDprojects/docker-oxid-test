@@ -7,7 +7,7 @@ COPY composer-withmetapackage.json .
 ARG OXID=6.1
 RUN php composer-withmetapackage.json > composer.json
 RUN cat composer.json
-RUN composer updated
+RUN composer updated -v
 RUN composer show -v oxid-esales/testing-library
 
 RUN OXID_PATH=$(pwd) &&\
