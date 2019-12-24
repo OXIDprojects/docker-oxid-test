@@ -7,12 +7,10 @@ COPY composer-withmetapackage.json .
 ARG OXID=6.1
 RUN php composer-withmetapackage.json > composer.json
 RUN cat composer.json
-#remove hirak/prestissimo because to try if it helps to get my testing lib fork installed
-RUN composer global remove hirak/prestissimo
 
 RUN OXID_PATH=$(pwd) &&\
     echo "installing OXID version ${OXID} in path $OXID_PATH" &&\
-    composer install --no-interaction --no-progress
+    composer create-project --no-interaction --no-progress
 #remove hirak/prestissimo because it conflicts with composer patches
 RUN composer global remove hirak/prestissimo
 RUN cp vendor/oxid-esales/testing-library/test_config.yml.dist test_config.yml
