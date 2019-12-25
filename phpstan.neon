@@ -1,10 +1,10 @@
 parameters:
     level: 7
     autoload_files:
-    - /var/www/OXID/vendor/oxid-esales/testing-library/base.php
-    - /var/www/OXID/vendor/oxid-esales/oxideshop-ce/source/oxfunctions.php
-    - /var/www/OXID/autoload.oxid.php
+    - /var/www/oxid/vendor/oxid-esales/testing-library/base.php
+    - /var/www/oxid/vendor/oxid-esales/oxideshop-ce/source/oxfunctions.php
+    - /var/www/oxid/autoload.oxid.php
     stubFiles:
-    - /var/www/OXID/stubs/oxnew.php
-    - /var/www/OXID/stubs/Registry.php
-    - /var/www/OXID/stubs/Base.php
+    - /var/www/oxid/stubs/oxnew.php
+    - /var/www/oxid/stubs/Registry.php
+    - /var/www/oxid/stubs/Base.php
