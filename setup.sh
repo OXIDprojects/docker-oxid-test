@@ -24,8 +24,8 @@ sed -i -e "s@<sShopDir>@${OXID_PATH}/source@g; s@<sCompileDir>@${OXID_PATH}/sour
 sed -i -e "s@partial_module_paths:@partial_module_paths: ${TARGET_PATH}@g" test_config.yml
 sed -i -e "s@run_tests_for_shop: true@run_tests_for_shop: false@g" test_config.yml
 #cat test_config.yml
-CLEAN_DB_HOST=${/$DB_HOST/;*/}
-echo clean host: $CLEAN_DB_HOST
+#CLEAN_DB_HOST=${/$DB_HOST/;*/}
+#echo clean host: $CLEAN_DB_HOST
 composer config repositories.build path "${BUILD_DIR}"
 
 #just in case the module has private repository dependencies clone that config
