@@ -1,4 +1,4 @@
 <?php
-require_once __PATH__ . 'vendor/oxid-esales/testing-library/base.php';
-require_once __PATH__ . 'vendor/oxid-esales/oxideshop-ce/source/oxfunctions.php';
-require_once __PATH__ . 'autoload.oxid.php';
+require_once 'vendor/oxid-esales/testing-library/base.php';
+require_once 'vendor/oxid-esales/oxideshop-ce/source/oxfunctions.php';
+require_once 'autoload.oxid.php';
