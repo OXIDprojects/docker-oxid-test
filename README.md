@@ -63,7 +63,8 @@ variables:
   MYSQL_ROOT_PASSWORD: 'root'
 ```
 
-github
+## github
+
 ```
 name: oxid module tests
 
