@@ -22,10 +22,12 @@ RUN rm -r /root/.composer/cache/files/*
 RUN rm -r vendor/oxid-esales/oxideshop-ce/source/out/pictures/*
 RUN rm -r vendor/oxid-esales/oxideshop-demodata-ce/*
 RUN rm -r source/out/pictures/*
-COPY setup.sh ""
-COPY stubs ""
-COPY phpstan.neon ""
-COPY psalm.xml ""
-COPY staticBoot.php ""
+COPY setup.sh .
+COPY stubs .
+COPY phpstan.neon .
+COPY psalm.xml .
+COPY staticBoot.php .
+RUN ls -al
+RUN ls -al stubs
 RUN curl -OL https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar
 
