@@ -8,14 +8,14 @@ A docker conteainer for testing modules
 navigate to the module root directory and execute
 ```
 docker run --rm -d -p 3306:3306 --name=gim -e  MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=oxid  mysql:5.7
-docker run -p 80:80 -d --link gim:mysql --rm --name=oxid --mount type=bind,source=$(pwd),target=/var/www/module oxidprojects/oxid-test:6.2-rc_php7.2
+docker run -p 80:80 -d --link gim:mysql --rm --name=oxid --mount type=bind,source=$(pwd),target=/var/www/module oxidprojects/oxid-test:v2_6.2-rc_php7.2
 
 docker exec -ti oxid bash
 cd /var/www/module
-bash ../OXID/setup.sh
+bash ../oxid/setup.sh
 
 find . -not -path "./vendor/*" -name "*.php" -print0 | xargs -0 -n1 -P8 php -l
-cd /var/www/OXID
+cd /var/www/oxid
 vendor/bin/phpstan analyse --configuration phpstan.neon /var/www/module
 vendor/bin/phpcs --standard=PSR12 --extensions=php /var/www/module
 vendor/bin/psalm.phar --show-info=false /var/www/module
@@ -30,17 +30,17 @@ you can also use you your browser an open http://127.0.0.1 to see the oxid shop 
 ## gitlab
 
 ```
-image: oxidprojects/oxid-test:6.2-rc_php7.1
+image: oxidprojects/oxid-test:v2_6.2-rc_php7.1
 
 test:static:
   script:
-    - /var/www/OXID/vendor/bin/phpcs --standard=PSR12 --extensions=php --ignore="vendor/|Scripts|tests" .
+    - /var/www/oxid/vendor/bin/phpcs --standard=PSR12 --extensions=php --ignore="vendor/|Scripts|tests" .
     - find . -not -path "./vendor/*" -name "*.php" -print0 | xargs -0 -n1 -P8 php -l
 
 .test_template: &test_definition
   script:
-    - bash /var/www/OXID/setup.sh
-    - cd /var/www/OXID
+    - bash /var/www/oxid/setup.sh
+    - cd /var/www/oxid
     - vendor/bin/phpstan analyse --configuration phpstan.neon $MD
     - vendor/bin/runtests
   services:
@@ -72,18 +72,9 @@ on: [push]
 jobs:
 
   build:
-    services:
-      mysql:
-        image: mysql:5.7
-        env:
-          MYSQL_ROOT_PASSWORD: root
-          MYSQL_DATABASE: oxid
-        ports: 
-          - 3306
-        options: --health-cmd "mysqladmin ping" --health-interval 10s --health-timeout 5s --health-retries 10
-
     runs-on: ubuntu-latest
-    container: oxidprojects/oxid-test:6.1_php7.1
+    container: oxidprojects/oxid-test:v2_6.1_php7.1
+    options: -v /var/run/mysqld/mysqld.sock:/var/run/mysqld/mysqld.sock    
     env:
       MODULE_NAME: moduleinternals
     steps:
@@ -93,11 +84,11 @@ jobs:
       run: composer validate
 
     - name: setup oxid
-      run: bash /var/www/OXID/setup.sh
+      run: bash /var/www/oxid/setup.sh
 
     - name: runt tests
       run: |
-        cd /var/www/OXID/
+        cd /var/www/oxid/
         vendor/bin/runtests
 
 ```
