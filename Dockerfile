@@ -24,10 +24,10 @@ RUN rm -r vendor/oxid-esales/oxideshop-demodata-ce/*
 RUN rm -r source/out/pictures/*
 COPY setup.sh .
 COPY stubs/ stubs/
+RUN ls -al stubs
 COPY phpstan.neon .
 COPY psalm.xml .
 COPY staticBoot.php .
-RUN ls -al
-RUN ls -al stubs
 RUN curl -OL https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar
+RUN ls -al
 
