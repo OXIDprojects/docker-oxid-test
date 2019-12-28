@@ -25,5 +25,7 @@ RUN rm -r source/out/pictures/*
 COPY setup.sh setup.sh
 COPY stubs stubs
 COPY phpstan.neon phpstan.neon
+COPY psalm.xml .
+COPY staticBoot.php
 RUN curl -OL https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar
 
