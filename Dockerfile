@@ -23,7 +23,7 @@ RUN rm -r vendor/oxid-esales/oxideshop-ce/source/out/pictures/*
 RUN rm -r vendor/oxid-esales/oxideshop-demodata-ce/*
 RUN rm -r source/out/pictures/*
 COPY setup.sh .
-COPY stubs .
+COPY stubs/ stubs/
 COPY phpstan.neon .
 COPY psalm.xml .
 COPY staticBoot.php .
