@@ -105,7 +105,8 @@
     "alfredbez/oxid-dump-autoload":"^0.1.0",
     "psalm/phar":"^3.8",
     "phpstan/phpstan":"0.12",
-    "phpmd/phpmd":"@beta"
+    "phpmd/phpmd":"@beta",
+    "consistence/coding-standard" : "*"
   },
   "config":{
     "extra": {
