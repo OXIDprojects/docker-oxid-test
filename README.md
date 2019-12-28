@@ -78,6 +78,7 @@ jobs:
     options: -v /var/run/mysqld/mysqld.sock:/var/run/mysqld/mysqld.sock    
     env:
       MODULE_NAME: moduleinternals
+      DB_HOST: "localhost;unix_socket=/var/run/mysqld/mysqld.sock"
     steps:
     - uses: actions/checkout@v1
         
