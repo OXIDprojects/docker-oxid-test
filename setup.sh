@@ -54,6 +54,13 @@ mysql -u $DB_USER -p$DB_PWD -h $CLEAN_DB_HOST $DB_NAME < vendor/oxid-esales/oxid
 vendor/bin/oe-eshop-db_migrate migrations:migrate
 vendor/bin/oe-eshop-db_views_generate
 
+
+if [ -z "$MODULE_NAME" ]
+then
+echo module name to activate?
+read $MODULE_NAME
+fi
+
 vendor/bin/oxid module:activate $MODULE_NAME
 vendor/bin/oxid-dump-autoload
 
