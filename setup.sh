@@ -57,8 +57,10 @@ vendor/bin/oe-eshop-db_views_generate
 
 if [ -z "$MODULE_NAME" ]
 then
+echo showing id from metadata.php:
+cat $BUILD_DIR/metadata.php |grep "\s*'id'\s*="
 echo module name to activate?
-read $MODULE_NAME
+read MODULE_NAME
 fi
 
 vendor/bin/oxid module:activate $MODULE_NAME
