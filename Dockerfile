@@ -29,5 +29,6 @@ COPY phpstan.neon .
 COPY psalm.xml .
 COPY staticBoot.php .
 RUN curl -OL https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar
+RUN curl -OL https://github.com/OXIDprojects/oxrun/releases/download/4.1.1/oxrun.phar
 RUN ls -al
 
