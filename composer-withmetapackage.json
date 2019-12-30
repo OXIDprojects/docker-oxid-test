@@ -100,7 +100,6 @@
   },
   "require-dev": {
     "oxid-professional-services/oxid-console": "^6.0.0-beta3",
-    "oxidprojects/oxrun":"^4.1.1",
     "oxid-esales/testing-library": "<?php print $oxidVersion === 'dev-master' ? '7.2' : (substr($oxidVersion,0,3) == '6.2' ? '^v7' : '^v5.0.4'); ?>",
     "cweagans/composer-patches": "^1.6.7",
     "oxid-professional-services/oxid-dump-autoload":"^0.3.0",
