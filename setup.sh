@@ -60,8 +60,7 @@ cat $BUILD_DIR/metadata.php |grep "\s*'id'\s*="
 echo module name to activate?
 read MODULE_NAME
 fi
-
-vendor/bin/oxid module:activate $MODULE_NAME
+php oxrun.phar module:activate $MODULE_NAME
 vendor/bin/oxid-dump-autoload
 
 
