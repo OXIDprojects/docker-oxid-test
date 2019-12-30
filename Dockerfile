@@ -24,6 +24,7 @@ RUN rm -r vendor/oxid-esales/oxideshop-demodata-ce/*
 RUN rm -r source/out/pictures/*
 COPY setup.sh .
 COPY stubs/ stubs/
+COPY scripts/ scripts/
 RUN ls -al stubs
 COPY phpstan.neon .
 COPY psalm.xml .
