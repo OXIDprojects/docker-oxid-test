@@ -1,7 +1,8 @@
 #! bin/bash
 set -e
 set -x
-
+BUILD_DIR=$(pwd)
+cd /var/www/oxid
 composer config repositories.build path "${BUILD_DIR}"
 
 #just in case the module has private repository dependencies clone that config
