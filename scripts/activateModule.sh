@@ -3,7 +3,9 @@ set -e
 set -x
 
 BUILD_DIR=$(pwd)
+TARGET_PATH=$(grep '"target-directory":' composer.json | awk -F'"' '{print $4}')
 cd /var/www/oxid
+sed -i -e "s@partial_module_paths:@partial_module_paths: ${TARGET_PATH}@g" test_config.yml
 
 if [ -z "$MODULE_NAME" ]
 then
