@@ -4,6 +4,9 @@ set -x
 BUILD_DIR=$(pwd)
 PACKAGE_NAME=$(composer config name)
 cd /var/www/oxid
+#this file is generated for modules only
+#generating a empty one to avoid errors when using packages that are no oxid modules
+touch autoload.oxid.php
 composer config repositories.build path "${BUILD_DIR}"
 
 #just in case the module has private repository dependencies clone that config
