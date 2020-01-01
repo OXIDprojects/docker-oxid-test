@@ -2,6 +2,7 @@
 set -e
 set -x
 BUILD_DIR=$(pwd)
+PACKAGE_NAME=$(composer config name)
 cd /var/www/oxid
 composer config repositories.build path "${BUILD_DIR}"
 
