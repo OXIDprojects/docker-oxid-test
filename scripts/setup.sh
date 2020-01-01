@@ -2,7 +2,6 @@
 set -e
 set -x
 
-cd /var/www/oxid
-bash scripts/setupOxid.sh
-bash scripts/setupPackage.sh
-bash scripts/activateModule.sh
+bash /var/www/oxid/scripts/setupOxid.sh
+bash /var/www/oxid/scripts/setupPackage.sh
+bash /var/www/oxid/scripts/activateModule.sh
