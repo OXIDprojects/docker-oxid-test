@@ -1,6 +1,10 @@
 #! bin/bash
 set -e
 set -x
+
+BUILD_DIR=$(pwd)
+cd /var/www/oxid
+
 if [ -z "$MODULE_NAME" ]
 then
 echo showing id from metadata.php:
