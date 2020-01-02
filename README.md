@@ -21,7 +21,7 @@ vendor/bin/phpcs --standard=PSR12 --extensions=php /var/www/module
 vendor/bin/psalm.phar --show-info=false /var/www/module
 vendor/bin/runtests 
 
-you can also use you your browser an open http://127.0.0.1 to see the oxid shop installed
+you can also use your browser and open http://127.0.0.1 to see the oxid shop installed
 
 ```
 
