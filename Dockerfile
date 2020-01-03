@@ -9,7 +9,7 @@ RUN php composer-withmetapackage.json > composer.json
 RUN cat composer.json
 
 RUN composer show -v -a oxid-esales/testing-library
-
+RUN umask 0000
 RUN OXID_PATH=$(pwd) &&\
     echo "installing OXID version ${OXID} in path $OXID_PATH" &&\
     composer create-project --prefer-dist --no-interaction --no-progress
