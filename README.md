@@ -63,7 +63,7 @@ you can also use your browser and open http://127.0.0.1 to see the oxid shop ins
 ## gitlab
 
 ```
-image: oxidprojects/oxid-test:v2_6.2-rc_php7.1
+image: oxidprojects/oxid-test:v3_6.2-rc_php7.1
 
 test:static:
   script:
@@ -83,7 +83,7 @@ test:static:
 
 test:OXID6.1:
   <<: *test_definition
-  image: oxidprojects/oxid-test:6.1_php7.1
+  image: oxidprojects/oxid-test:v3_6.1_php7.1
 
 test:OXID6.2:
   <<: *test_definition
@@ -107,7 +107,7 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
-    container: oxidprojects/oxid-test:v2_6.1_php7.1
+    container: oxidprojects/oxid-test:v3_6.1_php7.1
     options: -v /var/run/mysqld/mysqld.sock:/var/run/mysqld/mysqld.sock    
     env:
       MODULE_NAME: moduleinternals
