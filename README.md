@@ -6,11 +6,16 @@ A docker conteainer for testing modules
 # How to use locally v3
 warning is in in development please see next section v2 for the old version
 
+to start the dockercontainer with oxid and get a terminal run:
 ```
 docker run --rm -d -p 3306:3306 --name=gim -e  MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=oxid  mysql:5.7
 docker run -p 80:80 -d --link gim:mysql --rm --name=oxid --mount type=bind,source=$(pwd),target=/var/www/module oxidprojects/oxid-test:v3_6.2-rc_php7.2
 
 docker exec -ti oxid bash
+```
+
+## if you want to test a module run the following commands inside the docker container
+```
 cd /var/www/module
 bash ../oxid/setup.sh
 
@@ -20,10 +25,16 @@ vendor/bin/phpstan analyse --configuration phpstan.neon /var/www/module
 vendor/bin/phpcs --standard=PSR12 --extensions=php /var/www/module
 vendor/bin/psalm.phar --show-info=false /var/www/module
 vendor/bin/runtests 
+```
 
-you can also use your browser and open http://127.0.0.1 to see the oxid shop installed
+## if you only want to see the shop then run inside the docker container
+```
+cd /var/www/oxideshop
+bash scripts/setupOxid.sh
 
 ```
+
+you can also use your browser and open http://127.0.0.1 to see the oxid shop installed
 
 
 # How to use locally v2
