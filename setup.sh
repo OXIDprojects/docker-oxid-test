@@ -14,7 +14,7 @@ BUILD_DIR=$(pwd)
 TARGET_PATH=$(grep '"target-directory":' composer.json | awk -F'"' '{print $4}')
 
 
-cd /var/www/oxid
+cd /var/www/oxideshop
 OXID_PATH=$(pwd)
 sed -i -e "s@<dbHost>@${DB_HOST}@g; s@<dbName>@${DB_NAME}@g; s@<dbUser>@${DB_USER}@g; s@<dbPwd>@${DB_PWD}@g" source/config.inc.php
 sed -i -e "s@<sShopURL>@${SHOP_URL}@g; s@sLogLevel = 'error'@sLogLevel = '${SHOP_LOG_LEVEL}'@g" source/config.inc.php

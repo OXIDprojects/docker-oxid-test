@@ -1,6 +1,6 @@
 ARG PHP=7.1
 FROM oxidprojects/oxid-apache-php:php$PHP
-WORKDIR /var/www/oxidesales
+WORKDIR /var/www/oxideshop
 
 COPY composer-withmetapackage.json .
 

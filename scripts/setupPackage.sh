@@ -3,7 +3,7 @@ set -e
 set -x
 BUILD_DIR=$(pwd)
 PACKAGE_NAME=$(composer config name)
-cd /var/www/oxid
+cd /var/www/oxideshop
 #this file is generated for modules only
 #generating a empty one to avoid errors when using packages that are no oxid modules
 touch autoload.oxid.php
