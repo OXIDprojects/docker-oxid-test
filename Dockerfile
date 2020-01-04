@@ -22,7 +22,6 @@ RUN rm -r /root/.composer/cache/files/*
 RUN rm -r vendor/oxid-esales/oxideshop-ce/source/out/pictures/*
 RUN rm -r vendor/oxid-esales/oxideshop-demodata-ce/*
 RUN rm -r source/out/pictures/*
-COPY setup.sh .
 COPY stubs/ stubs/
 COPY scripts/ scripts/
 RUN ls -al stubs
