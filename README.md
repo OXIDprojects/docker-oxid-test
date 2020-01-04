@@ -17,7 +17,7 @@ docker exec -ti oxid bash
 ## if you want to test a module run the following commands inside the docker container
 ```
 cd /var/www/module
-bash ../oxid/setup.sh
+bash ../oxideshop/scripts/setup.sh
 
 find . -not -path "./vendor/*" -name "*.php" -print0 | xargs -0 -n1 -P8 php -l
 cd /var/www/oxideshop
