@@ -36,26 +36,6 @@ bash scripts/setupOxid.sh
 
 you can also use your browser and open http://127.0.0.1 to see the oxid shop installed
 
-
-# How to use locally v2
-navigate to the module root directory and execute
-```
-docker run --rm -d -p 3306:3306 --name=gim -e  MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=oxid  mysql:5.7
-docker run -p 80:80 -d --link gim:mysql --rm --name=oxid --mount type=bind,source=$(pwd),target=/var/www/module oxidprojects/oxid-test:v2_6.2-rc_php7.2
-
-docker exec -ti oxid bash
-cd /var/www/module
-bash ../oxid/setup.sh
-
-find . -not -path "./vendor/*" -name "*.php" -print0 | xargs -0 -n1 -P8 php -l
-cd /var/www/oxid
-vendor/bin/phpstan analyse --configuration phpstan.neon /var/www/module
-vendor/bin/phpcs --standard=PSR12 --extensions=php /var/www/module
-vendor/bin/psalm.phar --show-info=false /var/www/module
-vendor/bin/runtests 
-
-you can also use your browser and open http://127.0.0.1 to see the oxid shop installed
-
 ```
 
 # How to use in ci
@@ -72,7 +52,7 @@ test:static:
 
 .test_template: &test_definition
   script:
-    - bash /var/www/oxideshop/setup.sh
+    - bash /var/www/oxideshop/scripts/setup.sh
     - cd /var/www/oxideshop
     - vendor/bin/phpstan analyse --configuration phpstan.neon $MD
     - vendor/bin/runtests
@@ -111,15 +91,18 @@ jobs:
     options: -v /var/run/mysqld/mysqld.sock:/var/run/mysqld/mysqld.sock    
     env:
       MODULE_NAME: moduleinternals
-      DB_HOST: "localhost;unix_socket=/var/run/mysqld/mysqld.sock"
+      DB_HOST: "127.0.0.1"
     steps:
     - uses: actions/checkout@v1
         
     - name: Validate composer.json and composer.lock
       run: composer validate
 
+    - name: route db from socket to port
+      run: bash /var/www/oxideshop/scripts/routeDbfromSocketToPort.sh        
+   
     - name: setup oxid
-      run: bash /var/www/oxideshop/setup.sh
+      run: bash /var/www/oxideshop/scripts/setup.sh
 
     - name: runt tests
       run: |
