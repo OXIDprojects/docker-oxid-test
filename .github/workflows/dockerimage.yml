@@ -25,5 +25,6 @@ jobs:
     - name: Docker Login
       run: docker login -u ${{ secrets.DOCKER_HUB_USER }} -p ${{ secrets.DOCKER_HUB_PASSWORD }}
     - name: Publish OXID v3_${{ matrix.oxid }}_php${{ matrix.php }} Docker image on Docker Hub
+      if: success() && github.ref == 'refs/heads/master'       
       run: docker push oxidprojects/oxid-test:v3_${{ matrix.oxid }}_php${{ matrix.php }}
 
