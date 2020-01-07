@@ -19,7 +19,9 @@ jobs:
     - name: enable experimental features on client
       run: "mkdir -p ~/.docker && echo '{\"experimental\": \"enabled\"}' | tee ~/.docker/config.json"
     - name: service restart
-      run: sudo service docker restart   
+      run: sudo service docker restart
+    - name: version
+      run echo echo oxid docker test container $GITHUB_SHA > scripts/about.sh
     - name: Build the OXID 6.1 Docker image
       run: docker build . --squash --file Dockerfile --build-arg PHP=${{ matrix.php }} --build-arg OXID=${{ matrix.oxid }} --tag oxidprojects/oxid-test:v3_${{ matrix.oxid }}_php${{ matrix.php }}
     - name: Docker Login
