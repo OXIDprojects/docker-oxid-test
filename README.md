@@ -36,8 +36,6 @@ bash scripts/setupOxid.sh
 
 you can also use your browser and open http://127.0.0.1 to see the oxid shop installed
 
-```
-
 # How to use in ci
 
 ## gitlab
