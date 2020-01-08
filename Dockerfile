@@ -32,9 +32,12 @@ COPY staticBoot.php .
 RUN curl -fOL https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar
 RUN curl -fOL https://github.com/OXIDprojects/oxrun/releases/download/4.1.1/oxrun.phar
 RUN curl -fOL http://codeception.com/codecept.phar
-RUN if [ "$PHP" = "7.1" ]; then export phpunit=7; else export phpunit=8; fi
+RUN if [ "$PHP" = "7.1" ];\
+then curl -fLo phpunit https://phar.phpunit.de/phpunit-7.phar; \
+else curl -fLo phpunit https://phar.phpunit.de/phpunit-8.phar; \
+fi
 RUN echo https://phar.phpunit.de/phpunit-${phpunit}.phar
-RUN curl -fLo phpunit https://phar.phpunit.de/phpunit-${phpunit}.phar
+RUN 
 RUN chmod +x codecept.phar phpunit oxrun.phar phpcs.phar
 RUN ls -al
 
