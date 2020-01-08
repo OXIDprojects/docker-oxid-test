@@ -36,8 +36,6 @@ RUN if [ "$PHP" = "7.1" ];\
 then curl -fLo phpunit https://phar.phpunit.de/phpunit-7.phar; \
 else curl -fLo phpunit https://phar.phpunit.de/phpunit-8.phar; \
 fi
-RUN echo https://phar.phpunit.de/phpunit-${phpunit}.phar
-RUN 
 RUN chmod +x codecept.phar phpunit oxrun.phar phpcs.phar
 RUN ls -al
 
