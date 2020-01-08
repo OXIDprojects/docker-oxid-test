@@ -25,6 +25,7 @@ RUN rm -r source/out/pictures/*
 COPY stubs/ stubs/
 COPY scripts/ scripts/
 RUN ls -al stubs
+COPY phpstan-baseline.neon .
 COPY phpstan.neon .
 COPY psalm.xml .
 COPY staticBoot.php .
