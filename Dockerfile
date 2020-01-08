@@ -32,6 +32,7 @@ COPY staticBoot.php .
 RUN curl -OL https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar
 RUN curl -OL https://github.com/OXIDprojects/oxrun/releases/download/4.1.1/oxrun.phar
 RUN curl -OL http://codeception.com/codecept.phar
-RUN chmod +x codecept.phar
+RUN curl -Lo phpunit https://phar.phpunit.de/phpunit-8.phar
+RUN chmod +x codecept.phar phpunit oxrun.phar phpcs.phar
 RUN ls -al
 
