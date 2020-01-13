@@ -4,8 +4,6 @@
 A docker container for testing modules
 
 # How to use locally v3
-Warning: Version 3 is in in development!  
-Please see next section (v2) for the old version
 
 To start the Docker Container with oxid and get a terminal run:
 ```
