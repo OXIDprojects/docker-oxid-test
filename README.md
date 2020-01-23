@@ -107,3 +107,7 @@ jobs:
         cd /var/www/oxideshop/
         vendor/bin/runtests
 ```
+# Based on 
+this is based on
+https://github.com/OXIDprojects/docker-oxid
+where you may find internals and tools that are preinstalled
