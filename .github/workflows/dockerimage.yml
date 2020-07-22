@@ -7,11 +7,13 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        oxid: [6.1,6.2-rc,dev-master]
+        oxid: [6.1,6.2,dev-master]
         php: [7.1,7.2]
         exclude:
           - oxid: dev-master
             php: 7.1
+          - oxid: dev-master
+            php: 7.2
     steps:
     - uses: actions/checkout@v1
     - name: enable experimental features
